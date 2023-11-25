@@ -4,8 +4,11 @@ from django.db import models
 from django.contrib.auth.models import User  
 
 # Create your models here.
-class Voiture(models.Model):
+class VoitureImage(models.Model):
+ image=models.ImageField()
+ voiture=models.ForeignKey('Voiture',on_delete=models.CASCADE)
 
+class Voiture(models.Model):
     class Status(models.TextChoices):
       Disponible = 'Dis', 'Disponible'
       InDisponible = 'InDis', 'IndDisponible'
@@ -18,6 +21,7 @@ class Voiture(models.Model):
     status = models.CharField(max_length=5,
                               choices=Status.choices,
                               default=Status.Disponible)
+    
 
 
     def __str__(self):
@@ -25,6 +29,7 @@ class Voiture(models.Model):
  # Meta pour spécifier l'ordre par defaut de recuperation 
     class Meta: 
         ordering = ['annee_fabrication', 'marque', 'modele']
+        
     def get_absolute_url(self):
         return reverse('voiture_detail', args=[str(self.id)])
     
@@ -58,3 +63,4 @@ class Location(models.Model):
 
     def __str__(self):
         return f"Location de {self.voiture} à {self.client} du {self.date_debut} au {self.date_fin}"
+    

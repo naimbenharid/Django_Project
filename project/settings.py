@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'location_voiture',
+    'dashbord'
 
 ]
 
@@ -151,3 +152,6 @@ LOGGING={
 }
 }
 }
+STATIC_ROOT = BASE_DIR / 'static'
+MEDIA_ROOT = STATIC_ROOT / 'media'
+MEDIA_URL = '/media/'

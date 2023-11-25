@@ -1,0 +1,14 @@
+<!-- voiture_detail.html -->
+
+<h2>Détails de la Voiture</h2>
+
+<h3>{{ voiture }}</h3>
+<p>Immatriculation: {{ voiture.immatriculation }}</p>
+<p>Marque: {{ voiture.marque }}</p>
+<p>Modèle: {{ voiture.modele }}</p>
+<p>Année de fabrication: {{ voiture.annee_fabrication }}</p>
+<p>Couleur: {{ voiture.couleur }}</p>
+<p>Status: {{ voiture.get_status_display }}</p>
+
+<a href="{% url 'voiture_update' voiture.id %}">Modifier</a>
+<a href="{% url 'voiture_delete' voiture.id %}">Supprimer</a>

@@ -1,0 +1,10 @@
+<!-- voiture_list.html -->
+
+<h2>Liste des Voitures</h2>
+
+<ul>
+  {% for voiture in voitures %}
+    <li><a href="{% url 'voiture_detail' voiture.id %}">{{ voiture }}</a></li>
+  {% endfor %}
+</ul>
+

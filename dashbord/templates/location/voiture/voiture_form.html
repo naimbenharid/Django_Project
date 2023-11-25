@@ -1,0 +1,11 @@
+<!-- voiture_form.html -->
+
+<h2>{% if form.instance.id %}Modifier{% else %}Ajouter{% endif %} une Voiture</h2>
+
+<form method="post" action="{% if form.instance.id %}{% url 'voiture_update' form.instance.id %}{% else %}{% url 'voiture_create' %}{% endif %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Enregistrer</button>
+</form>
+
+<a href="{% url 'voiture_list' %}">Retour à la liste des voitures</a>

@@ -1,0 +1,12 @@
+<!-- voiture_confirm_delete.html -->
+
+<h2>Confirmer la suppression de la Voiture</h2>
+
+<p>Voulez-vous vraiment supprimer la voiture "{{ voiture }}" ?</p>
+
+<form method="post" action="{% url 'voiture_delete' voiture.id %}">
+  {% csrf_token %}
+  <button type="submit">Oui, supprimer</button>
+</form>
+
+<a href="{% url 'voiture_list' %}">Annuler</a>
